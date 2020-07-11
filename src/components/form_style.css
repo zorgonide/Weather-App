@@ -9,6 +9,7 @@ background-color: transparent;
 border: none;
 border-bottom: 2px solid whitesmoke;
 border-radius: 0;
+z-index: 10;
 }
 
 form input:focus{

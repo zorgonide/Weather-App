@@ -36,7 +36,7 @@ function From(props) {
 function error(props) {
   return (
     <div className="alert alert-danger mx-5" role="alert">
-      Please Enter City and Country...!
+      Enter City and Country
     </div>
   );
 };

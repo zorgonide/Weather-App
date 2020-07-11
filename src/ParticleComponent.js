@@ -22,16 +22,16 @@ export default () => (
             }
           },
           color: {
-            value: "#ff0000"
+            value: "#c9feff"
           },
           shape: {
             type: "circle",
             stroke: {
-              width: 2,
-              color: "#f2ee00"
+              width: 0,
+              color: "#000000"
             },
             polygon: {
-              nb_sides: 4
+              nb_sides: 5
             },
             image: {
               src: "img/github.svg",
@@ -50,11 +50,11 @@ export default () => (
             }
           },
           size: {
-            value: 5,
+            value: 4,
             random: true,
             anim: {
               enable: false,
-              speed: 40,
+              speed: 80,
               size_min: 0.1,
               sync: false
             }
@@ -62,8 +62,8 @@ export default () => (
           line_linked: {
             enable: true,
             distance: 150,
-            color: "#f2ee00",
-            opacity: 0.4,
+            color: "#7cf5f7",
+            opacity: 2,
             width: 1
           },
           move: {

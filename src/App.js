@@ -4,10 +4,10 @@ import Weather from "./components/weather_component";
 import "bootstrap/dist/css/bootstrap.min.css"
 import "weather-icons/css/weather-icons.css"
 import Form from "./components/form_component"
+import ParticleComponent from "./ParticleComponent";
 
 const apikey = "184080a27b2ff2aa447f712e151d8f52";
 
-// const weatherURL = "http://api.openweathermap.org/data/2.5/forecast?zip=10302,us&units=imperial&APPID=184080a27b2ff2aa447f712e151d8f52"
 export class App extends Component {
   constructor(){
     super();
@@ -31,8 +31,6 @@ export class App extends Component {
       Clear: "wi-day-sunny",
       Clouds: "wi-day-fog"
     };
-    // this.componentDidMount()
-    // this.getWeather();
   }
   calCelsius(temp) {
     let cell = Math.floor(temp - 273.15);
@@ -76,19 +74,25 @@ export class App extends Component {
     if (city && country) {
       const api_call = await fetch(apiCall);
       const response = await api_call.json();
-      console.log(response)
-      this.setState(
+      if (response.cod == "404")
       {
-        city: `${response.name}, ${response.sys.country}`,
-        main: response.weather[0].main,
-        celsius: this.calCelsius(response.main.temp),
-        temp_max: this.calCelsius(response.main.temp_max),
-        temp_min: this.calCelsius(response.main.temp_min),
-        description: response.weather[0].main,
-        error: false,
-      })
-  
-      this.get_WeatherIcon(this.weatherIcon, response.weather[0].id);
+        this.setState({
+          error:true
+        })
+      }else{
+        this.setState(
+          {
+            city: `${response.name}, ${response.sys.country}`,
+            main: response.weather[0].main,
+            celsius: this.calCelsius(response.main.temp),
+            temp_max: this.calCelsius(response.main.temp_max),
+            temp_min: this.calCelsius(response.main.temp_min),
+            description: response.weather[0].main,
+            error: false,
+          })
+      
+          this.get_WeatherIcon(this.weatherIcon, response.weather[0].id);
+      }
     }
     else{
       this.setState({
@@ -98,10 +102,19 @@ export class App extends Component {
     
   }
   
-
   render() {
     return (
       <div className="App">
+        <ParticleComponent />
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+          }}
+        ></div>
         <Form loadweather = {this.getWeather} error = {this.state.error}/>
         <Weather 
         city={this.state.city} 
@@ -118,4 +131,3 @@ export class App extends Component {
 
 export default App
 
-// api.openweathermap.org/data/2.5/weather?q={city name}&appid=
