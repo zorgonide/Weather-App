@@ -9,7 +9,7 @@ Video of project - [link](https://drive.google.com/file/d/1ZAgQBQXrOExxgiXFYcIU3
 
 ```bash
 # Install dependencies
-yarn install
+npm install
 
 # Serve on localhost:3000
 npm start
