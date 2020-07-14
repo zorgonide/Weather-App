@@ -1,18 +1,31 @@
 form {
     margin-top: 3rem;
+    margin-bottom: 50px;
+  z-index: 4;
   }
   
 form input[name="city"],
 form input[name="country"] {
-background-color: transparent;
-/* color: white; */
-border: none;
-border-bottom: 2px solid whitesmoke;
-border-radius: 0;
-z-index: 10;
-}
-
-form input:focus{
   background-color: transparent;
+  /* color: white; */
+  border: none;
+  border-bottom: 1px solid whitesmoke;
+  border-radius: 0;
+  font-size: x-large;
+  color:#f08bf0;
+  
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #f08bf0 !important;
+  opacity: 1; /* Firefox */
+}
+form input:focus{
+  background-color: #595959 !important;
+  color: whitesmoke !important ;
   box-shadow: none !important;
+  border-bottom: 1px solid #f08bf0 !important ;
+}
+.btn, .btn:hover, .btn:active, .btn:visited {
+  background-color:#f08bf0 !important;
+  color:#595959;
 }

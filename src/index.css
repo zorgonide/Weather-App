@@ -5,7 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background:  url("./background/tree.jpg");
+  /* background:  url("./background/ploygons.jpg"); */
+  background-color: #595959 !important;
   background-size: cover;
   background-repeat: no-repeat;
 }

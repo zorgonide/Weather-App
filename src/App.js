@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "weather-icons/css/weather-icons.css"
 import Form from "./components/form_component"
 import ParticleComponent from "./ParticleComponent";
-
+import { FadeTransform } from 'react-animation-components';
 const apikey = "184080a27b2ff2aa447f712e151d8f52";
 
 export class App extends Component {
@@ -104,7 +104,7 @@ export class App extends Component {
   
   render() {
     return (
-      <div className="App">
+      <div className="App" >
         <ParticleComponent />
         <div
           style={{
@@ -113,17 +113,25 @@ export class App extends Component {
             left: 0,
             width: "100%",
             height: "100%",
+            zIndex:-10
           }}
         ></div>
-        <Form loadweather = {this.getWeather} error = {this.state.error}/>
-        <Weather 
-        city={this.state.city} 
-        country={this.state.country}
-        weatherIcon={this.state.icon}
-        temp_celsius={this.state.celsius}
-        temp_max={this.state.temp_max}
-        temp_min={this.state.temp_min}
-        description={this.state.description}/>
+        <FadeTransform
+        in
+        transformProps={{
+            exitTransform: 'scale(0.5) translateY(-50%)'
+        }}>
+          <Form loadweather = {this.getWeather} error = {this.state.error}/>
+        </FadeTransform>
+
+          <Weather 
+          city={this.state.city} 
+          country={this.state.country}
+          weatherIcon={this.state.icon}
+          temp_celsius={this.state.celsius}
+          temp_max={this.state.temp_max}
+          temp_min={this.state.temp_min}
+          description={this.state.description}/>
       </div>
     )
   }
