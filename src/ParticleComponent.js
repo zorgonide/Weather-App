@@ -63,8 +63,8 @@ export default () => (
             enable: true,
             distance: 150,
             color: "#7cf5f7",
-            opacity: 2,
-            width: 1
+            opacity: 1,
+            width: 0.5
           },
           move: {
             enable: true,

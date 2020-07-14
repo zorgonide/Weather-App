@@ -70,7 +70,7 @@ export class App extends Component {
     const country = e.target.elements.country.value;
 
 
-    var apiCall = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${apikey}`;
+    let apiCall = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${apikey}`;
     if (city && country) {
       const api_call = await fetch(apiCall);
       const response = await api_call.json();
